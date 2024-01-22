@@ -73,6 +73,9 @@ class FactCheckerTest extends TestCase
     }
 
     /**
+     * This is general test for checking the SUT behavior when Fetcher fails
+     * with an unspecified reason, such as Network, Protocol, other issues.
+     *
      * @test
      */
     public function it_can_handle_a_request_error_with_unspecified_reason()
@@ -87,7 +90,12 @@ class FactCheckerTest extends TestCase
         $this->assertStringContainsString('Request error', $fact);
     }
 
-    /** @test */
+    /**
+     * This is general test for checking the Logger behavior when Fetcher fails
+     * with an unspecified reason, such as Network, Protocol, other issues.
+     *
+     * @test
+     */
     public function it_can_log_a_request_error_with_unspecified_reason()
     {
         $fetcherStub = $this->createStub(Fetcher::class);
