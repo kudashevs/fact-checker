@@ -11,6 +11,12 @@ interesting fact about cats using an API, evaluates the truthfulness of this fac
 **How it works**: We fetch a fact about cats from the public API. Then, we use an algorithm to check the reliability of the fact,
 and we give a fact’s score. Then, the app generates an output that includes the fact with the score and the opinion.
 
+**A simplified class diagram**
+![simplified-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/6c9d74e8-91c3-43be-8a3d-a6a24ce10554)
+
+**A simplified sequence diagram**
+![sequence-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/6a65b250-a0f1-4b9f-a974-f73f7ee21c14)
+
 
 ### Requirements
 
