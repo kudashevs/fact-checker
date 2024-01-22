@@ -202,7 +202,6 @@ class FactCheckerTest extends TestCase
         $this->assertStringContainsString('fact field', $fact);
     }
 
-
     /** @test */
     public function it_can_log_an_unexpected_json()
     {
