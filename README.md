@@ -25,7 +25,7 @@ We are going to cover only few cases from the requirements:
 * ...
 
 **A simplified class diagram**
-![simplified-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/6c9d74e8-91c3-43be-8a3d-a6a24ce10554)
+![simplified-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/f2a6e46e-0707-4ae2-8ce9-a9e066a90b98)
 
 **A simplified sequence diagram**
 ![sequence-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/6a65b250-a0f1-4b9f-a974-f73f7ee21c14)
