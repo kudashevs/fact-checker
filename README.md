@@ -31,23 +31,40 @@ We are going to cover only few cases from the requirements:
 ![sequence-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/6a65b250-a0f1-4b9f-a974-f73f7ee21c14)
 
 
-## List of tests
+## Tests
+
+Let's examine possible test cases for our requirements: 
+
+**Fetcher** component
+- an expected JSON (happy path)
+- error requesting data with unspecified reason (fail path)
+- error requesting data due to a timeout (fail path)
+- an empty JSON (exceptional condition)
+- an invalid JSON (exceptional condition)
+- an unexpected JSON (exceptional condition/edge case)
+
+**Assessor** component
+- an expected string (happy path)
+- an empty string (edge case)
+
+### List of tests
 
 | **Fetcher** component | Test doubles |
 | :------------- | :------------- |
-|<img width=640/>|<img width=320/>|
 | an expected JSON | stub |
 | error requesting data with unspecified reason | stub / mock (for logging only) |
 | error requesting data due to a timeout | stub / mock (for logging only) |
 | an empty JSON | stub / mock (for logging only) |
 | an invalid JSON | stub / mock (for logging only) |
 | an unexpected JSON | stub / mock (for logging only) / spy (for notifier) |
+|<img width=640/>|<img width=320/>|
 
 | **Assessor** component | Test doubles |
 | :------------- | :------------- |
-|<img width=640/>|<img width=320/>|
 | an expected string | stub / real implementation / never mock |
 | an empty string | stub / real implementation |
+|<img width=640/>|<img width=320/>|
+
 
 ## License
 
