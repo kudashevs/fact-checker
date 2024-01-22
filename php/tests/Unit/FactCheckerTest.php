@@ -257,7 +257,7 @@ class FactCheckerTest extends TestCase
      */
     public function it_can_assess_a_fact_from_a_hardcoded_stub()
     {
-        /**
+        /*
          * The Fetcher stub won't affect the result, but we have to provide it.
          * We substitute all the internal calculations with the predefined data.
          */
@@ -278,7 +278,7 @@ class FactCheckerTest extends TestCase
      */
     public function it_can_assess_a_fact_with_a_stub()
     {
-        /**
+        /*
          * The Fetcher stub won't affect the result, but we have to provide it.
          * We substitute all the internal calculations with the predefined data.
          */
@@ -353,7 +353,7 @@ class FactCheckerTest extends TestCase
      */
     public function it_can_process_an_empty_fact_with_a_stub()
     {
-        /**
+        /*
          * The Fetcher stub won't affect the result, but we have to provide it.
          * We substitute all the internal calculations with the predefined data.
          */
@@ -396,7 +396,7 @@ class FactCheckerTest extends TestCase
      */
     private function createFetcherStub()
     {
-        /**
+        /*
          * A hardcoded Fetcher stub.
          */
         return new FetcherStub();
@@ -404,7 +404,7 @@ class FactCheckerTest extends TestCase
 
     private function createAssessorStub()
     {
-        /**
+        /*
          * A hardcoded Assessor stub.
          */
         return new AssessorStub();
