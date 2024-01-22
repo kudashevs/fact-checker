@@ -1,4 +1,4 @@
-# A cats fact app
+# A fact checking application
 
 This is an example app for my presentation "Mocks aren’t Stubs. What are test doubles and how do we use them?"
 
