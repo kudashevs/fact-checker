@@ -6,7 +6,7 @@ This is an example app for my presentation "Mocks aren’t Stubs. What are test 
 ## Description
 
 The goal of the application is to show how we can use different **test doubles** in different situations. The app provides a random
-interesting fact about cats, evaluates the truthfulness of this fact, and calculates a score.
+interesting fact about cats using an API, evaluates the truthfulness of this fact, and calculates a score.
 
 **How it works**: We fetch a fact about cats from the public API. Then, we use an algorithm to check the reliability of the fact,
 and we give a fact’s score. Then, the app generates an output that includes the fact with the score and the opinion.
