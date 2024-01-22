@@ -32,6 +32,24 @@ We are going to cover only few cases from the requirements:
 * ...
 
 
+## List of tests
+
+| **Fetcher** component | Test doubles |
+| :------------- | :------------- |
+|<img width=640/>|<img width=320/>|
+| an expected JSON | stub |
+| error requesting data with unspecified reason | stub / mock (for logging only) |
+| error requesting data due to a timeout | stub / mock (for logging only) |
+| an empty JSON | stub / mock (for logging only) |
+| an invalid JSON | stub / mock (for logging only) |
+| an unexpected JSON | stub / mock (for logging only) / spy (for notifier) |
+
+| **Assessor** component | Test doubles |
+| :------------- | :------------- |
+|<img width=640/>|<img width=320/>|
+| an expected string | stub / real implementation / never mock |
+| an empty string | stub / real implementation |
+
 ## License
 
 The MIT License (MIT). Please see the [License file](LICENSE.md) for more information.
