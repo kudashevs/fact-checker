@@ -14,10 +14,12 @@ and we give a fact’s score. Then, the app generates an output that includes th
 
 ### Requirements
 
-We are going to cover only two cases from the requirements:
+We are going to cover only few cases from the requirements:
 
-* should log incorrect interactions with public API
-* when a received JSON is unexpected (business requirement):
+* should fetch a fact about cats
+* should assess the fact’s truthfulness and give a score
+* should log incorrect interactions with the public API
+* when a received JSON is unexpected (a business requirement):
   - notify ‘CTO’ about the problem via email
   - notify ‘programmers’ about the problem via email
   - notify ‘programmers’ about the problem via slack
