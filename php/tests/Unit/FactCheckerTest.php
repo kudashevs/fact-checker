@@ -225,6 +225,41 @@ class FactCheckerTest extends TestCase
         )->once();
     }
 
+    /**
+     * This test is highly tightly coupled and, therefore, it is very brittle.
+     *
+     * @test
+     * @doesNotPerformAssertions
+     */
+    public function it_can_notify_an_unexpected_json_with_additional_times_check()
+    {
+        $fetcherStub = $this->createStub(Fetcher::class);
+        $fetcherStub->method('fetch')
+            ->willReturn('{"test":"unexpected"}');
+        $notifierSpy = \Mockery::spy(Notifier::class);
+
+        $checker = new FactChecker($fetcherStub, $this->createAssessorStub());
+        $checker->setNotifier($notifierSpy);
+        $checker->randomFact();
+
+        /*
+         * We can be even more strict and check the number of calls if this does make sense.
+         */
+        $notifierSpy->shouldHaveReceived('notify')->atLeast()->times(3);
+        $notifierSpy->shouldHaveReceived(
+            'notify',
+            ['email', \Mockery::any(), \Mockery::hasValue('CTO')]
+        )->once();
+        $notifierSpy->shouldHaveReceived(
+            'notify',
+            ['email', \Mockery::any(), \Mockery::hasValue('programmers')]
+        )->once();
+        $notifierSpy->shouldHaveReceived(
+            'notify',
+            ['slack', \Mockery::any(), \Mockery::hasValue('programmers')]
+        )->once();
+    }
+
 
     /**
      * This is a usage example of a hardcoded Assessor stub.
