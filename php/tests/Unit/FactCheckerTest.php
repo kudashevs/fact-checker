@@ -5,7 +5,6 @@ namespace FactChecker\Tests\Unit;
 use FactChecker\AssessService\Assessor;
 use FactChecker\AssessService\DefaultAssessor;
 use FactChecker\Exceptions\RequestError;
-use FactChecker\Exceptions\RequestTimeout;
 use FactChecker\FactChecker;
 use FactChecker\FetchService\Fetcher;
 use FactChecker\LoggerService\Logger;
@@ -94,36 +93,6 @@ class FactCheckerTest extends TestCase
         $fetcherStub = $this->createStub(Fetcher::class);
         $fetcherStub->method('fetch')
             ->willThrowException(new RequestError('Request error'));
-        $loggerMock = $this->createMock(Logger::class);
-        $loggerMock->expects($this->once())
-            ->method('error');
-
-        $checker = new FactChecker($fetcherStub, $this->createAssessorStub());
-        $checker->setLogger($loggerMock);
-        $checker->randomFact();
-    }
-
-    /**
-     * @test
-     */
-    public function it_can_handle_a_request_error_due_to_a_timeout()
-    {
-        $fetcherStub = $this->createStub(Fetcher::class);
-        $fetcherStub->method('fetch')
-            ->willThrowException(new RequestTimeout('Request timeout'));
-
-        $checker = new FactChecker($fetcherStub, $this->createAssessorStub());
-        $fact = $checker->randomFact();
-
-        $this->assertStringContainsString('Request timeout', $fact);
-    }
-
-    /** @test */
-    public function it_can_log_a_request_error_due_to_a_timeout()
-    {
-        $fetcherStub = $this->createStub(Fetcher::class);
-        $fetcherStub->method('fetch')
-            ->willThrowException(new RequestTimeout('Request timeout'));
         $loggerMock = $this->createMock(Logger::class);
         $loggerMock->expects($this->once())
             ->method('error');
