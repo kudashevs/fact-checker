@@ -57,13 +57,13 @@ Let's examine possible test cases for our requirements:
 | an empty JSON | stub / mock (for logging only) |
 | an invalid JSON | stub / mock (for logging only) |
 | an unexpected JSON | stub / mock (for logging only) / spy (for notifier) |
-|<img width=640/>|<img width=320/>|
+|<img width="640" height="1"/>|<img width="320" height="1"/>|
 
 | **Assessor** component | Test doubles |
 | :------------- | :------------- |
 | an expected string | stub / real implementation / never mock |
 | an empty string | stub / real implementation |
-|<img width=640/>|<img width=320/>|
+|<img width="640" height="1"/>|<img width="320" height="1"/>|
 
 
 ## License
