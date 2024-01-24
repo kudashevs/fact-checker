@@ -1,0 +1,44 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    testIntegration {
+        compileClasspath += main.output + test.output
+        runtimeClasspath += main.output + test.output
+        java.srcDir file('src/test-integration/java')
+        resources.srcDir file('src/integration-test/resources')
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.+'
+
+    implementation 'org.mockito:mockito-inline:5.+'
+
+    implementation 'org.json:json:2023+'
+}
+
+configurations {
+    testIntegrationImplementation.extendsFrom testImplementation
+    testIntegrationRuntime.extendsFrom testRuntime
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'factchecker.App'
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
+task testIntegration(type: Test) {
+    testClassesDirs = sourceSets.testIntegration.output.classesDirs
+    classpath = sourceSets.testIntegration.runtimeClasspath
+}
