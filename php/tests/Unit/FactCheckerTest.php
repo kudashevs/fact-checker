@@ -186,8 +186,12 @@ class FactCheckerTest extends TestCase
         $fetcherStub->method('fetch')
             ->willReturn('{"test":"unexpected"}');
         $loggerMock = $this->createMock(Logger::class);
+        /*
+         * We can be even more precise and check that the original JSON was logged.
+         */
         $loggerMock->expects($this->once())
-            ->method('alert');
+            ->method('alert')
+            ->with($this->stringContains('{"test":"unexpected"}'));
 
         $checker = new FactChecker($fetcherStub, $this->createAssessorStub());
         $checker->setLogger($loggerMock);

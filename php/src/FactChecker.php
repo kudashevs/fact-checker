@@ -100,7 +100,15 @@ class FactChecker
 
         try {
             $parsedFact = json_decode($rawFact, false, 2, JSON_THROW_ON_ERROR);
-            $fact = $parsedFact->fact ?? throw new \LogicException('the fact field doesn\'t exist.');
+
+            if (!property_exists($parsedFact, "fact")) {
+                throw new \LogicException(
+                    sprintf('the fact field doesn\'t exist. The original JSON is: %s.', $rawFact)
+                );
+            }
+
+            $fact = $parsedFact->fact;
+
         } catch (\JsonException $e) {
             // log special cases: - JSON parse exception
             $this->logger->alert($e->getMessage());
