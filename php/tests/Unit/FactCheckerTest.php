@@ -64,6 +64,7 @@ class FactCheckerTest extends TestCase
         $fetcherMock = $this->createMock(Fetcher::class);
         $fetcherMock->expects($this->once())
             ->method('fetch')
+            ->with(FactChecker::API_URL)
             ->willReturn('{"fact":"cat"}');
 
         $checker = new FactChecker($fetcherMock, $this->createAssessorStub());
