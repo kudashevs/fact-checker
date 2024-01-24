@@ -30,10 +30,10 @@ class FactCheckerTest extends TestCase
     /** @test */
     public function it_can_assess_a_fact()
     {
-        $fetcher = new FetcherStub();
+        $fetcherStub = new FetcherStub();
         $assessor = DefaultAssessor::create();
 
-        $checker = new FactChecker($fetcher, $assessor);
+        $checker = new FactChecker($fetcherStub, $assessor);
         $fact = $checker->randomFact();
 
         /*
