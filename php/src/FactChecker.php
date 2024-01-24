@@ -93,7 +93,7 @@ class FactChecker
         try {
             $rawFact = $this->fetcher->fetch(self::API_URL);
         } catch (RuntimeException $e) {
-            // log special cases: - RequestError; - RequestTimeout
+            // log special cases: - RequestError; - RequestTimeout; - etc.
             $this->logger->error($e->getMessage());
             throw new CannotFetchFact($e->getMessage());
         }
