@@ -75,7 +75,7 @@ public class FactChecker {
 
         try {
             rawFact = this.fetcher.fetch(API_URL);
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             // log special cases: - NoHttpResponse; - ConnectTimeoutException; - etc
             this.logger.error(e.getMessage());
             throw new CannotFetchFact(e.getMessage(), e);

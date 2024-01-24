@@ -49,7 +49,7 @@ class FactCheckerTest {
      * This is a usage example of a Fetcher stub.
      */
     @Test
-    void it_can_process_an_expected_json_with_a_stub() throws IOException {
+    void it_can_process_an_expected_json_with_a_stub() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenReturn("{\"fact\":\"cat\"}");
 
@@ -66,7 +66,7 @@ class FactCheckerTest {
      * @see Mock or Stub? slide in the presentation.
      */
     @Test
-    void it_can_process_an_expected_json_with_a_mock() throws IOException {
+    void it_can_process_an_expected_json_with_a_mock() throws IOException, InterruptedException {
         Fetcher fetcherMock = Mockito.mock(Fetcher.class);
         when(fetcherMock.fetch(FactChecker.API_URL)).thenReturn("{\"fact\":\"cat\"}");
 
@@ -82,7 +82,7 @@ class FactCheckerTest {
      * with an unspecified reason, such as Network, Protocol, other issues.
      */
     @Test
-    void it_can_handle_a_request_error_with_unspecified_reason() throws IOException {
+    void it_can_handle_a_request_error_with_unspecified_reason() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenThrow(new IOException("Request error"));
 
@@ -97,7 +97,7 @@ class FactCheckerTest {
      * with an unspecified reason, such as Network, Protocol, other issues.
      */
     @Test
-    void it_can_log_a_request_error_with_unspecified_reason() throws IOException {
+    void it_can_log_a_request_error_with_unspecified_reason() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenThrow(new IOException("Request error"));
         Logger loggerMock = Mockito.mock(Logger.class);
@@ -110,7 +110,7 @@ class FactCheckerTest {
     }
 
     @Test
-    void it_can_handle_an_empty_json() throws IOException {
+    void it_can_handle_an_empty_json() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenReturn("");
 
@@ -121,7 +121,7 @@ class FactCheckerTest {
     }
 
     @Test
-    void it_can_log_an_empty_json() throws IOException {
+    void it_can_log_an_empty_json() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenReturn("");
         Logger loggerMock = Mockito.mock(Logger.class);
@@ -134,7 +134,7 @@ class FactCheckerTest {
     }
 
     @Test
-    void it_can_handle_an_invalid_json() throws IOException {
+    void it_can_handle_an_invalid_json() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenReturn("{");
 
@@ -145,7 +145,7 @@ class FactCheckerTest {
     }
 
     @Test
-    void it_can_log_an_invalid_json() throws IOException {
+    void it_can_log_an_invalid_json() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenReturn("{");
         Logger loggerMock = Mockito.mock(Logger.class);
@@ -158,7 +158,7 @@ class FactCheckerTest {
     }
 
     @Test
-    void it_can_handle_an_unexpected_json_format() throws IOException {
+    void it_can_handle_an_unexpected_json_format() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenReturn("{\"wrong\":\"test\"}");
 
@@ -169,7 +169,7 @@ class FactCheckerTest {
     }
 
     @Test
-    void it_can_log_an_unexpected_json() throws IOException {
+    void it_can_log_an_unexpected_json() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenReturn("{\"test\":\"unexpected\"}");
         Logger loggerMock = Mockito.mock(Logger.class);
@@ -188,7 +188,7 @@ class FactCheckerTest {
      * This test is highly tightly coupled and, therefore, it is very brittle.
      */
     @Test
-    void it_can_notify_an_unexpected_json() throws IOException {
+    void it_can_notify_an_unexpected_json() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenReturn("{\"test\":\"unexpected\"}");
         Notifier notifierSpy = Mockito.spy(new NullNotifier());
@@ -206,7 +206,7 @@ class FactCheckerTest {
      * This test is highly tightly coupled and, therefore, it is very brittle.
      */
     @Test
-    void it_can_notify_an_unexpected_json_with_additional_times_check() throws IOException {
+    void it_can_notify_an_unexpected_json_with_additional_times_check() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(any())).thenReturn("{\"test\":\"unexpected\"}");
         Notifier notifierSpy = Mockito.spy(new NullNotifier());
@@ -307,7 +307,7 @@ class FactCheckerTest {
      * @see Classicist vs Mockist slide in the presentation.
      */
     @Test
-    void it_can_assess_a_fact_with_a_real_implementation() throws IOException {
+    void it_can_assess_a_fact_with_a_real_implementation() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(FactChecker.API_URL)).thenReturn("{\"fact\":\"Jaguars are the only big cats that don't roar.\",\"length\":46}");
         Assessor assessor = DefaultAssessor.create();
@@ -349,7 +349,7 @@ class FactCheckerTest {
      * @see Classicist vs Mockist slide in the presentation.
      */
     @Test
-    void it_can_process_an_empty_fact_with_a_real_implementation() throws IOException {
+    void it_can_process_an_empty_fact_with_a_real_implementation() throws IOException, InterruptedException {
         Fetcher fetcherStub = Mockito.mock(Fetcher.class);
         when(fetcherStub.fetch(anyString())).thenReturn("{\"fact\":\"\",\"length\":0}");
         Assessor assessor = DefaultAssessor.create();
