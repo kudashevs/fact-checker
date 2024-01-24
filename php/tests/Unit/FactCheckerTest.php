@@ -131,7 +131,7 @@ class FactCheckerTest extends TestCase
             ->willReturn('');
         $loggerMock = $this->createMock(Logger::class);
         $loggerMock->expects($this->once())
-            ->method('warning');
+            ->method('alert');
 
         $checker = new FactChecker($fetcherStub, $this->createAssessorStub());
         $checker->setLogger($loggerMock);
@@ -159,7 +159,7 @@ class FactCheckerTest extends TestCase
             ->willReturn('{');
         $loggerMock = $this->createMock(Logger::class);
         $loggerMock->expects($this->once())
-            ->method('warning');
+            ->method('alert');
 
         $checker = new FactChecker($fetcherStub, $this->createAssessorStub());
         $checker->setLogger($loggerMock);
@@ -187,7 +187,7 @@ class FactCheckerTest extends TestCase
             ->willReturn('{"test":"unexpected"}');
         $loggerMock = $this->createMock(Logger::class);
         $loggerMock->expects($this->once())
-            ->method('warning');
+            ->method('alert');
 
         $checker = new FactChecker($fetcherStub, $this->createAssessorStub());
         $checker->setLogger($loggerMock);
@@ -243,7 +243,7 @@ class FactCheckerTest extends TestCase
         $checker->randomFact();
 
         /*
-         * We can be even more strict and check the number of calls if this does make sense.
+         * We can be even more precise and check the number of calls if this does make sense.
          */
         $notifierSpy->shouldHaveReceived('notify')->atLeast()->times(3);
         $notifierSpy->shouldHaveReceived(

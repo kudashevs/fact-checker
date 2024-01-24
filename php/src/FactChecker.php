@@ -103,11 +103,11 @@ class FactChecker
             $fact = $parsedFact->fact ?? throw new \LogicException('the fact field doesn\'t exist.');
         } catch (\JsonException $e) {
             // log special cases: - JSON parse exception
-            $this->logger->warning($e->getMessage());
+            $this->logger->alert($e->getMessage());
             throw new CannotFetchFact($e->getMessage());
         } catch (\LogicException $e) {
             // log special cases: - JSON is unexpected
-            $this->logger->warning($e->getMessage());
+            $this->logger->alert($e->getMessage());
             // notify special cases: - notify Discord, - notify Mail
             $this->notifier->notify('email', $e->getMessage(), ['to' => 'CTO']);
             $this->notifier->notify('email', $e->getMessage(), ['to' => 'programmers']);
