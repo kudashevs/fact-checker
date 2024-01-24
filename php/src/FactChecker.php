@@ -133,12 +133,12 @@ class FactChecker
 
     protected function generateAssessment(string $fact): string
     {
-        $assessment = $this->assessor->getOpinion($fact);
+        $opinion = $this->assessor->getOpinion($fact);
         $score = $this->assessor->getScore($fact);
 
         return sprintf(
             'It seems to be %s. Our score is %s point%s.',
-            $assessment,
+            $opinion,
             $score,
             ($score !== 1) ? 's' : '',
         );
