@@ -37,8 +37,8 @@ class FactCheckerTest extends TestCase
         $fact = $checker->randomFact();
 
         /*
-         * Because we are using a Fetcher stub, this test can rely on a more predictable result.
-         * On the other hand, do not check for the whole known output (the test becomes brittle).
+         * Because we are using a Fetcher stub, this test can rely on a more predictable behavior.
+         * On the other hand, we couple our test to the stub's implementation (may become brittle).
          */
         $this->assertNotEmpty($fact);
         $this->assertStringContainsString('unreliable', $fact);
