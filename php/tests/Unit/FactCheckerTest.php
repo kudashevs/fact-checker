@@ -276,8 +276,8 @@ class FactCheckerTest extends TestCase
     public function it_can_assess_a_fact_from_a_hardcoded_stub()
     {
         /*
-         * The Fetcher stub won't affect the result, but we have to provide it.
-         * We substitute all the internal calculations with the predefined data.
+         * The Fetcher's behavior is beyond the scope of our interest, but we have to provide it.
+         * In this test we substitute all of the internal calculations with the predefined data.
          */
         $fetcherStub = $this->createFetcherStub();
         $assessorStub = $this->createAssessorStub();
@@ -297,8 +297,8 @@ class FactCheckerTest extends TestCase
     public function it_can_assess_a_fact_with_a_stub()
     {
         /*
-         * The Fetcher stub won't affect the result, but we have to provide it.
-         * We substitute all the internal calculations with the predefined data.
+         * The Fetcher's behavior is beyond the scope of our interest, but we have to provide it.
+         * In this test we substitute all of the internal calculations with the predefined data.
          */
         $fetcherStub = $this->createFetcherStub();
         $assessorStub = $this->createStub(Assessor::class);
@@ -377,8 +377,8 @@ class FactCheckerTest extends TestCase
     public function it_can_process_an_empty_fact_with_a_stub()
     {
         /*
-         * The Fetcher stub won't affect the result, but we have to provide it.
-         * We substitute all the internal calculations with the predefined data.
+         * The Fetcher's behavior is beyond the scope of our interest, but we have to provide it.
+         * In this test we substitute all of the internal calculations with the predefined data.
          */
         $fetcherStub = $this->createFetcherStub();
         $assessorStub = $this->createStub(Assessor::class);
