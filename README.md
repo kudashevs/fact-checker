@@ -28,7 +28,7 @@ We are going to cover only few cases from the requirements:
 ![simplified-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/f2a6e46e-0707-4ae2-8ce9-a9e066a90b98)
 
 **A simplified sequence diagram**
-![sequence-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/6a65b250-a0f1-4b9f-a974-f73f7ee21c14)
+![sequence-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/b123955d-fee2-4ccd-bf4d-ecce9dd01d99)
 
 
 ## Tests
