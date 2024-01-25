@@ -11,5 +11,8 @@ public class AppRunner {
         Assessor assessor = DefaultAssessor.create();
 
         FactChecker factChecker = new FactChecker(fetcher, assessor);
+        String fact = factChecker.fetchFact();
+
+        System.out.println(fact);
     }
 }
