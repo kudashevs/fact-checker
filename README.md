@@ -24,14 +24,14 @@ We are going to cover only few cases from the requirements:
   - notify ‘programmers’ about the problem via slack
 * ...
 
-**Disclaimer** This application is supposed to be as demonstrative as possible. Therefore, it lacks separation of concerns (responsibilities) with clear boundaries,
-a flexible output, a mechanism for managing dependencies, etc. On the other hand, the app's logic is gathered in one place - the **randomFact()** method and its internal calls.
-
 **A simplified class diagram**
 ![simplified-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/f2a6e46e-0707-4ae2-8ce9-a9e066a90b98)
 
 **A simplified sequence diagram**
 ![sequence-diagram](https://github.com/kudashevs/fact-checker/assets/15892462/b123955d-fee2-4ccd-bf4d-ecce9dd01d99)
+
+**Disclaimer** This application is supposed to be as demonstrative as possible. Therefore, it lacks separation of concerns (responsibilities) with clear boundaries,
+a flexible output, a mechanism for managing dependencies, etc. On the other hand, the app's logic is gathered in one place - the **randomFact()** method and its internal calls.
 
 
 ## Tests
