@@ -29,8 +29,7 @@ configurations {
 }
 
 application {
-    // Define the main class for the application.
-    mainClass = 'factchecker.App'
+    mainClass = 'factchecker.AppRunner'
 }
 
 tasks.named('test') {
