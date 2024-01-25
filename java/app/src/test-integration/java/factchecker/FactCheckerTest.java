@@ -1,5 +1,6 @@
 package factchecker;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import factchecker.AssessService.Assessor;
@@ -23,6 +24,7 @@ class FactCheckerTest {
          * the exact value, because the output is random. So, we can check the significant characteristics only.
          */
         assertTrue(fact.length() > 0);
+        assertFalse(fact.contains("error"));
     }
 
     @Test

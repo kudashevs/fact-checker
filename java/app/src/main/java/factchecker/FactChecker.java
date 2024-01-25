@@ -61,7 +61,7 @@ public class FactChecker {
         try {
             fact = fetchFact();
         } catch (CannotFetchFact e) {
-            return String.format("Cannot retrieve a fact because of: %s.", e.getMessage());
+            return String.format("Cannot retrieve a fact due to an error: %s.", e.getMessage());
         }
 
         String assessment = assessFact(fact);
