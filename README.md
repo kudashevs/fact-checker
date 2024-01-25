@@ -1,6 +1,6 @@
 # A fact checking application
 
-This is an example app for my presentation "Mocks aren’t Stubs. What are test doubles and how do we use them?"
+This is an example app for my presentation "[Mocks aren’t Stubs. What are test doubles and how do we use them?](https://www.youtube.com/watch?v=5JQ-Pn9Ob-w)"
 
 
 ## Description
