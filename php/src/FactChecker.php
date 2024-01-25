@@ -128,11 +128,6 @@ class FactChecker
 
     protected function assessFact(string $fact): string
     {
-        return $this->generateAssessment($fact);
-    }
-
-    protected function generateAssessment(string $fact): string
-    {
         $opinion = $this->assessor->getOpinion($fact);
         $score = $this->assessor->getScore($fact);
 
