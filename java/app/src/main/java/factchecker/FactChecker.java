@@ -66,7 +66,7 @@ public class FactChecker {
 
         String assessment = assessFact(fact);
 
-        return String.format("%s %s", fact, assessment);
+        return prepareFactFrom(fact, assessment);
     }
 
     protected String fetchFact() throws CannotFetchFact {
@@ -116,5 +116,9 @@ public class FactChecker {
             score,
             (score != 1) ? "s" : ""
         );
+    }
+
+    protected String prepareFactFrom(String fact, String assessment) {
+        return String.format("%s %s", fact, assessment);
     }
 }
