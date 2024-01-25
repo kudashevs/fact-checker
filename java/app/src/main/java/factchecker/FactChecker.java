@@ -55,6 +55,11 @@ public class FactChecker {
         this.notifier = notifier;
     }
 
+    /**
+     * Return a fetched random fact with an assessment.
+     *
+     * @return String
+     */
     public String randomFact() {
         String fact = "";
 
@@ -66,7 +71,7 @@ public class FactChecker {
 
         String assessment = assessFact(fact);
 
-        return prepareFactFrom(fact, assessment);
+        return String.format("%s %s", fact, assessment);
     }
 
     protected String fetchFact() throws CannotFetchFact {
@@ -116,9 +121,5 @@ public class FactChecker {
             score,
             (score != 1) ? "s" : ""
         );
-    }
-
-    protected String prepareFactFrom(String fact, String assessment) {
-        return String.format("%s %s", fact, assessment);
     }
 }
