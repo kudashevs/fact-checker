@@ -107,10 +107,6 @@ public class FactChecker {
     }
 
     protected String assessFact(String fact) {
-        return generateAssessment(fact);
-    }
-
-    protected String generateAssessment(String fact) {
         String opinion = this.assessor.getOpinion(fact);
         int score = this.assessor.getScore(fact);
 
