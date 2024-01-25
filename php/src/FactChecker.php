@@ -74,11 +74,7 @@ class FactChecker
 
         $assessment = $this->assessFact($fact);
 
-        return sprintf(
-            '%s %s',
-            $fact,
-            $assessment,
-        );
+        return $this->prepareFactFrom($fact, $assessment);
     }
 
     /**
@@ -136,6 +132,15 @@ class FactChecker
             $opinion,
             $score,
             ($score !== 1) ? 's' : '',
+        );
+    }
+
+    protected function prepareFactFrom(string $fact, string $assessment): string
+    {
+        return sprintf(
+            '%s %s',
+            $fact,
+            $assessment,
         );
     }
 }
