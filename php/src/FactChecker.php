@@ -64,6 +64,11 @@ class FactChecker
         $this->notifier = $notifier;
     }
 
+    /**
+     * Return a fetched random fact with an assessment.
+     *
+     * @return string
+     */
     public function randomFact(): string
     {
         try {
@@ -74,7 +79,7 @@ class FactChecker
 
         $assessment = $this->assessFact($fact);
 
-        return $this->prepareFactFrom($fact, $assessment);
+        return sprintf('%s %s', $fact, $assessment);
     }
 
     /**
@@ -132,15 +137,6 @@ class FactChecker
             $opinion,
             $score,
             ($score !== 1) ? 's' : '',
-        );
-    }
-
-    protected function prepareFactFrom(string $fact, string $assessment): string
-    {
-        return sprintf(
-            '%s %s',
-            $fact,
-            $assessment,
         );
     }
 }
