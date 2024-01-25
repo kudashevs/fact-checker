@@ -69,7 +69,7 @@ class FactChecker
         try {
             $fact = $this->fetchFact();
         } catch (CannotFetchFact $e) {
-            return sprintf('Cannot retrieve a fact because of: %s.', $e->getMessage());
+            return sprintf('Cannot retrieve a fact due to an error: %s.', $e->getMessage());
         }
 
         $assessment = $this->assessFact($fact);

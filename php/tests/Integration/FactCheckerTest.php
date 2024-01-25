@@ -25,6 +25,7 @@ class FactCheckerTest extends TestCase
          * the exact value, because the output is random. So, we can check the significant characteristics only.
          */
         $this->assertNotEmpty($fact);
+        $this->assertStringNotContainsString('error', $fact);
     }
 
     /** @test */
